@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<style>
+fieldset { width: 30% ;  }
+.A  { width: 125px; float: left; }
+.B  { width: 80px; float: right; } 
+.C  { width: 10px; float: right; } 
+ </style>
+<form action="index.php" onsubmit="comparewords()"  >
+
+<fieldset> <legend> Login </legend>
+
+<script>
+
+<!--Function to compare the 2 passwords-->
+function compareword(){
+   
+    ptr1 = document.getElementById("pwd1")
+    ptr2 = document.getElementById("pwd2")
+    ptr3 = document.getElementById("error")
+    
+    if (ptr1.value != ptr2.value){
+       ptr3.innerHTML = "Passwords do NOT match. Try Again." 
+       ptr2.value = "" 
+       return false
+    }else{ return true}
+}
+</script>
+
+<Label class="A">User Name</Label> 
+<input type=text name="user_name" placeholder="User name" id = "user"
+       autocomplete= "off"
+       ><br><br>  
+         
+<Label class="A" >Password</Label>      
+<input type=text name="password" placeholder="This will be your Password" id= "pwd1"
+       autocomplete= "off"
+       ><br><br> 
+       
+<Label class="A" >Confirm Password</Label> 
+<input type=text name="pwd2" placeholder="Confirm Password" id= "pwd2"
+       onblur="compareword()"
+       autocomplete= "off"
+       required 
+       ><br>
+       <span id="error" >  </span>
+       <br>  
+       
+<input type=submit > <br><br>
+
+</fieldset>
+</form>
